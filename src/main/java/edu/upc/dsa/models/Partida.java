@@ -4,7 +4,7 @@ import edu.upc.dsa.util.RandomUtils;
 import  java.util.Date;
 public class Partida {
 
-    String id;
+    String idPartida;
     Usuario usuario;
     Juego juego;
     int nivelActual;
@@ -12,7 +12,7 @@ public class Partida {
     Date fechaInicio;
 
     public Partida() {
-        this.id = RandomUtils.getId();
+        this.idPartida = RandomUtils.getId();
     }
 
     public Partida(Usuario usuario,Juego juego ){
@@ -24,12 +24,12 @@ public class Partida {
         this.fechaInicio=new Date();
     }
 
-    public String getId(){
-        return id;
+    public String getPartidaId(){
+        return idPartida;
     }
 
-    public void setId(String id) {
-        this.id=id;
+    public void setPartidaId(String idPartida) {
+        this.idPartida=idPartida;
     }
     public  Usuario getUsuario(){
         return  usuario;
@@ -55,5 +55,13 @@ public class Partida {
 
     public void setFechaInicio(Date fechaInicio){
         this.fechaInicio=fechaInicio;
+    }
+
+    public String getJuegoId(){
+        if(juego !=null){
+            return juego.getIdJuego();
+        }else{
+            return null;
+        }
     }
 }

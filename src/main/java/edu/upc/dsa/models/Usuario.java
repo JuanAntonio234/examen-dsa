@@ -2,13 +2,16 @@ package edu.upc.dsa.models;
 
 import edu.upc.dsa.util.RandomUtils;
 
+import java.util.List;
+
 public class Usuario {
 
-    String id;
+    List<String> juegosParticipados;
+    String idUsuario;
     String nombre;
 
     public Usuario() {
-        this.id = RandomUtils.getId();
+        this.idUsuario = RandomUtils.getId();
     }
 
     public Usuario(String nombre) {
@@ -16,12 +19,12 @@ public class Usuario {
         this.nombre=nombre;
     }
 
-    public String getId() {
-        return this.id;
+    public String getIdUsuario() {
+        return this.idUsuario;
     }
 
-    public void setId(String id) {
-        this.id=id;
+    public void setId(String idUsuario) {
+        this.idUsuario=idUsuario;
     }
 
     public String getNombre(){
@@ -32,9 +35,12 @@ public class Usuario {
         this.nombre = nombre;
     }
 
+    public boolean getUserParticipadoEnJuego(String gameId){
+        return juegosParticipados.contains(gameId);
+    }
     @Override
     public String toString() {
-        return "Usuario [id="+id+", nombre=]";
+        return "Usuario [id="+idUsuario+", nombre=]";
     }
 
 }

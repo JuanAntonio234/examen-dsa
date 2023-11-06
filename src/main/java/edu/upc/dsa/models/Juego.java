@@ -2,27 +2,25 @@ package edu.upc.dsa.models;
 
 import edu.upc.dsa.util.RandomUtils;
 
+import java.util.List;
+
 public class Juego {
 
-    String id;
+    String idJuego;
     String descripcion;
     int numNiveles;
 
-    public Juego() {
-        this.id = RandomUtils.getId();
-    }
-
-    public Juego(String descripcion,int numNiveles){
-        this();
+    public Juego(String gameId,String descripcion,int numNiveles){
+        this.idJuego=gameId;
         this.descripcion=descripcion;
         this.numNiveles=numNiveles;
     }
-    public String getId() {
-        return id;
+    public String getIdJuego() {
+        return idJuego;
     }
 
-    public void setId(String id) {
-        this.id=id;
+    public void setId(String idJuego) {
+        this.idJuego=idJuego;
     }
     public String getDescripcion() {
         return descripcion;
@@ -35,5 +33,14 @@ public class Juego {
     }
     public void setTNumniveles(int numNiveles) {
         this.numNiveles = numNiveles;
+    }
+
+    public static Juego buscarJuegoPorId(List<Juego> juegos, String  gameId){
+        for(Juego juego : juegos){
+            if(juego.getIdJuego().equals(gameId)) {
+                return juego;
+            }
+        }
+        return null;
     }
 }
